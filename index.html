@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>every15min — terminal-style capture log</title>
+<meta name="description" content="A terminal-style capture log for iOS. One line for what just happened, on a 15-minute rhythm. Local-only, no accounts, no tracking.">
+<style>
+  :root{
+    --bg:#1d2021; --bg2:#282828; --fg:#ebdbb2; --dim:#928374;
+    --green:#b8bb26; --amber:#fabd2f; --magenta:#d3869b; --rail:#3c3836;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px}
+  main{max-width:640px;width:100%}
+  h1{color:var(--green);font-size:28px;margin-bottom:4px}
+  .sub{color:var(--dim);margin-bottom:32px}
+  .prompt::before{content:"$ ";color:var(--green)}
+  section{margin-bottom:32px}
+  h2{color:var(--amber);font-size:17px;margin-bottom:10px}
+  h2::before{content:"## ";color:var(--dim)}
+  ul{list-style:none}
+  li{padding-left:1.4em;position:relative;margin-bottom:6px}
+  li::before{content:"●";color:var(--amber);position:absolute;left:0;font-size:11px;top:5px}
+  .log{border-left:2px dashed var(--rail);padding-left:18px;margin:18px 0}
+  .log .t{color:var(--green)}
+  .log .h{color:var(--magenta)}
+  .log div{margin-bottom:8px}
+  a{color:var(--magenta)}
+  footer{margin-top:auto;padding-top:48px;color:var(--dim);font-size:13px;text-align:center}
+  .badge{display:inline-block;border:1px solid var(--rail);border-radius:8px;padding:10px 18px;margin-top:12px;color:var(--fg);text-decoration:none;background:var(--bg2)}
+  .badge:hover{border-color:var(--green)}
+</style>
+</head>
+<body>
+<main>
+  <h1>every15min</h1>
+  <p class="sub">terminal-style capture log · for iPhone</p>
+
+  <section>
+    <p class="prompt">what just happened?</p>
+    <p>Every 15 minutes, write one line. No categories, no timers, no friction.
+    The timestamp, the rhythm, and the day's picture take care of themselves.</p>
+    <div class="log">
+      <div><span class="t">09:02</span> deep work: widget timeline provider <span class="h">#code</span></div>
+      <div><span class="t">09:44</span> quick break, stretched, refilled water</div>
+      <div><span class="t">10:01</span> standup: demoed the sparkline <span class="h">#team</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>features</h2>
+    <ul>
+      <li>git-log-style timeline, color-coded by time of day</li>
+      <li>stats bar: next window, gap, today's count, streak</li>
+      <li>24-hour activity sparkline</li>
+      <li>#hashtags and full-history search</li>
+      <li>command console (:help, :find, :theme, :export …)</li>
+      <li>six dark themes · home screen widget · photo attachments</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>private by design</h2>
+    <p>Your log never leaves your device. No account, no server, no analytics,
+    no tracking. Export everything as JSON any time — optionally encrypted
+    with AES-256. See the <a href="privacy.html">privacy policy</a>.</p>
+  </section>
+
+  <section>
+    <h2>support</h2>
+    <p>Questions, bug reports, or ideas — email
+    <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>.
+    We usually reply within a couple of days.</p>
+  </section>
+</main>
+<footer>© 2026 Tao Pan · <a href="privacy.html">privacy</a></footer>
+</body>
+</html>
