@@ -1,79 +1,69 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans" data-active="zh">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>every15min — terminal-style capture log</title>
-<meta name="description" content="A terminal-style capture log for iOS. One line for what just happened, on a 15-minute rhythm. Local-only, no accounts, no tracking.">
-<style>
-  :root{
-    --bg:#1d2021; --bg2:#282828; --fg:#ebdbb2; --dim:#928374;
-    --green:#b8bb26; --amber:#fabd2f; --magenta:#d3869b; --rail:#3c3836;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px}
-  main{max-width:640px;width:100%}
-  h1{color:var(--green);font-size:28px;margin-bottom:4px}
-  .sub{color:var(--dim);margin-bottom:32px}
-  .prompt::before{content:"$ ";color:var(--green)}
-  section{margin-bottom:32px}
-  h2{color:var(--amber);font-size:17px;margin-bottom:10px}
-  h2::before{content:"## ";color:var(--dim)}
-  ul{list-style:none}
-  li{padding-left:1.4em;position:relative;margin-bottom:6px}
-  li::before{content:"●";color:var(--amber);position:absolute;left:0;font-size:11px;top:5px}
-  .log{border-left:2px dashed var(--rail);padding-left:18px;margin:18px 0}
-  .log .t{color:var(--green)}
-  .log .h{color:var(--magenta)}
-  .log div{margin-bottom:8px}
-  a{color:var(--magenta)}
-  footer{margin-top:auto;padding-top:48px;color:var(--dim);font-size:13px;text-align:center}
-  .badge{display:inline-block;border:1px solid var(--rail);border-radius:8px;padding:10px 18px;margin-top:12px;color:var(--fg);text-decoration:none;background:var(--bg2)}
-  .badge:hover{border-color:var(--green)}
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>every15min — TokenDance 岛的十五分钟记录工坊</title>
+  <meta name="description" content="每十五分钟写下一行刚刚发生的事。终端风格、本地保存、无账号、无广告、无追踪。">
+  <link rel="canonical" href="https://every15min.tokendance.life/">
+  <meta name="theme-color" content="#fff0bf">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="story.css">
 </head>
-<body>
-<main>
-  <h1>every15min</h1>
-  <p class="sub">terminal-style capture log · for iPhone</p>
+<body class="bee-world">
+  <nav class="island-nav" aria-label="页面导航">
+    <a class="island-home" href="https://tokendance.life/"><span>←</span><b>TokenDance 岛</b></a>
+    <div class="resident-chip"><i></i><span data-lang="zh">记录工坊 · 蜜蜂</span><span data-lang="en">Log Workshop · Bee</span></div>
+    <div class="langbar"><button data-set-lang="zh">中</button><button data-set-lang="en">EN</button></div>
+  </nav>
 
-  <section>
-    <p class="prompt">what just happened?</p>
-    <p>Every 15 minutes, write one line. No categories, no timers, no friction.
-    The timestamp, the rhythm, and the day's picture take care of themselves.</p>
-    <div class="log">
-      <div><span class="t">09:02</span> deep work: widget timeline provider <span class="h">#code</span></div>
-      <div><span class="t">09:44</span> quick break, stretched, refilled water</div>
-      <div><span class="t">10:01</span> standup: demoed the sparkline <span class="h">#team</span></div>
+  <header class="story-hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow" data-lang="zh">TOKENDANCE 岛 · 01 号住户</p><p class="eyebrow" data-lang="en">TOKENDANCE ISLAND · RESIDENT 01</p>
+      <h1><span data-lang="zh">不必写日记，只需留下<span class="marker">刚刚这一刻</span></span><span data-lang="en">Skip the diary. Capture <span class="marker">this moment</span></span></h1>
+      <p class="hero-lead" data-lang="zh">每十五分钟，一个轻轻的时间格。想起来就写一行，一天的形状会自己出现。</p>
+      <p class="hero-lead" data-lang="en">Every fifteen minutes is a tiny time cell. Write one line when it matters and the shape of your day appears.</p>
+      <div class="hero-actions"><button class="primary" data-scroll="#journey"><span data-lang="zh">和蜜蜂记一轮</span><span data-lang="en">Log a round</span></button><a class="secondary" href="privacy.html"><span data-lang="zh">隐私承诺</span><span data-lang="en">Privacy promise</span></a></div>
     </div>
-  </section>
+    <div class="resident-stage" aria-label="every15min 蜜蜂">
+      <div class="sun-dot"></div><div class="leaf leaf-a">⌁</div><div class="leaf leaf-b">15</div>
+      <img src="mascot.svg" alt="腹部有 15 记号的记录蜜蜂">
+      <div class="speech"><b><span data-lang="zh">蜜蜂</span><span data-lang="en">Bee</span></b><span data-lang="zh">嗡——刚刚发生了什么？</span><span data-lang="en">Buzz—what just happened?</span></div>
+    </div>
+  </header>
 
-  <section>
-    <h2>features</h2>
-    <ul>
-      <li>git-log-style timeline, color-coded by time of day</li>
-      <li>stats bar: next window, gap, today's count, streak</li>
-      <li>24-hour activity sparkline</li>
-      <li>#hashtags and full-history search</li>
-      <li>command console (:help, :find, :theme, :export …)</li>
-      <li>six dark themes · home screen widget · photo attachments</li>
-    </ul>
-  </section>
+  <main>
+    <section class="promise-band"><div class="wrap promise-grid">
+      <div><b>01</b><span data-lang="zh">一行就够</span><span data-lang="en">One line is enough</span></div>
+      <div><b>02</b><span data-lang="zh">时间自动归位</span><span data-lang="en">Time sorts itself</span></div>
+      <div><b>03</b><span data-lang="zh">记录只在设备</span><span data-lang="en">Logs stay on-device</span></div>
+    </div></section>
 
-  <section>
-    <h2>private by design</h2>
-    <p>Your log never leaves your device. No account, no server, no analytics,
-    no tracking. Export everything as JSON any time — optionally encrypted
-    with AES-256. See the <a href="privacy.html">privacy policy</a>.</p>
-  </section>
+    <section class="journey wrap" id="journey">
+      <div class="section-heading"><p class="eyebrow" data-lang="zh">蜜蜂的采集路线</p><p class="eyebrow" data-lang="en">THE BEE'S ROUTE</p><h2><span data-lang="zh">捕捉、回看、发现自己的节奏</span><span data-lang="en">Capture, revisit, discover your rhythm</span></h2></div>
+      <div class="trail" role="tablist">
+        <button class="trail-stop active" data-scene="capture"><i>+</i><b><span data-lang="zh">采一格</span><span data-lang="en">Capture</span></b><small><span data-lang="zh">写下这一刻</span><span data-lang="en">Write this moment</span></small></button>
+        <button class="trail-stop" data-scene="timeline"><i>⌁</i><b><span data-lang="zh">排成线</span><span data-lang="en">Timeline</span></b><small><span data-lang="zh">一天自然成形</span><span data-lang="en">See the day</span></small></button>
+        <button class="trail-stop" data-scene="find"><i>#</i><b><span data-lang="zh">找到它</span><span data-lang="en">Find it</span></b><small><span data-lang="zh">标签与搜索</span><span data-lang="en">Tags & search</span></small></button>
+      </div>
+      <article class="scene-card" aria-live="polite">
+        <div class="scene-visual terminal-card" id="sceneVisual"><span>09:15</span><i></i></div>
+        <div><p class="scene-kicker" id="sceneKicker">CAPTURE CELL</p><h3 id="sceneTitle">一句话，让这一刻有了落脚处</h3><p id="sceneText">没有分类表单，也不用开启计时。输入刚刚发生的事，时间戳会替你完成剩下的工作。</p></div>
+      </article>
+    </section>
 
-  <section>
-    <h2>support</h2>
-    <p>Questions, bug reports, or ideas — email
-    <a href="mailto:tonybingpoon@gmail.com">tonybingpoon@gmail.com</a>.
-    We usually reply within a couple of days.</p>
-  </section>
-</main>
-<footer>© 2026 Tao Pan · <a href="privacy.html">privacy</a></footer>
-</body>
-</html>
+    <section class="tool-section wrap">
+      <div class="section-heading"><p class="eyebrow" data-lang="zh">记录工具箱</p><p class="eyebrow" data-lang="en">LOG TOOLKIT</p><h2><span data-lang="zh">终端的效率，岛民的轻松</span><span data-lang="en">Terminal speed, island ease</span></h2></div>
+      <div class="tool-grid">
+        <article><i>15</i><h3 data-lang="zh">节奏格</h3><h3 data-lang="en">Rhythm cells</h3><p data-lang="zh">下一个时间窗、间隔、今日数量与连续记录。</p><p data-lang="en">Next window, gap, count and streak.</p></article>
+        <article><i>#</i><h3 data-lang="zh">标签搜索</h3><h3 data-lang="en">Tags & search</h3><p data-lang="zh">从完整历史里找回某个项目或心情。</p><p data-lang="en">Recover a project or feeling from history.</p></article>
+        <article><i>▥</i><h3 data-lang="zh">一天图谱</h3><h3 data-lang="en">Day map</h3><p data-lang="zh">24 小时活动火花线，让节奏一眼可见。</p><p data-lang="en">A 24-hour sparkline makes rhythm visible.</p></article>
+        <article><i>:</i><h3 data-lang="zh">命令控制台</h3><h3 data-lang="en">Command console</h3><p data-lang="zh">搜索、主题与导出，都能从键盘快速抵达。</p><p data-lang="en">Search, themes and export from the keyboard.</p></article>
+      </div>
+    </section>
+
+    <section class="privacy-story wrap"><div class="privacy-mascot"><img src="mascot.svg" alt=""></div><div><p class="eyebrow">LOCAL FIRST</p><h2><span data-lang="zh">你的生活，不是我们的数据</span><span data-lang="en">Your life is not our data</span></h2><p data-lang="zh">没有账号、服务器、广告或分析工具。文字和照片保存在你的设备上，随时可以导出，还可选择 AES-256 加密。</p><p data-lang="en">No accounts, servers, ads or analytics. Text and photos stay on your device; export anytime, with optional AES-256 encryption.</p><a href="privacy.html"><span data-lang="zh">阅读完整隐私政策 →</span><span data-lang="en">Read the privacy policy →</span></a></div></section>
+  </main>
+  <footer class="wrap"><a href="https://tokendance.life/">← TokenDance 岛</a><p>© 2026 every15min · <a href="mailto:tonybingpoon@gmail.com">联系园长</a></p></footer>
+  <script src="story.js"></script>
+</body></html>
