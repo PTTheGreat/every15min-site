@@ -175,9 +175,10 @@ html[data-active="en"] [data-lang="en"] {
   left: 50%;
   transform: translateX(-50%);
   width: min(100%, calc((100svh - 100px) * 1.5));
-  height: calc(100% - 100px);
-  object-fit: contain;
-  object-position: 50% 53%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  pointer-events: none;
+  user-select: none;
   mask-image:
     linear-gradient(to right, transparent, #000 24%, #000 76%, transparent),
     linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
@@ -629,9 +630,6 @@ footer p {
   margin: auto;
 }
 @media (min-width: 1500px) {
-  .garden-scene {
-    object-position: center 60%;
-  }
   .hero-copy {
     top: 110px;
   }
@@ -656,8 +654,7 @@ footer p {
     max-height: 980px;
   }
   .garden-scene {
-    object-fit: cover;
-    object-position: 50% 50%;
+    width: min(1100px, 145vw);
   }
   .hero-copy {
     top: 110px;
@@ -714,7 +711,6 @@ footer p {
     width: min(760px, 200vw);
     height: auto;
     top: 150px;
-    object-fit: contain;
     mask-image: linear-gradient(
       to bottom,
       transparent,
@@ -723,7 +719,6 @@ footer p {
       transparent
     );
     mask-composite: add;
-    object-position: 50% 46%;
   }
   .hero-copy {
     top: 105px;

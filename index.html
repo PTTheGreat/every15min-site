@@ -12,12 +12,16 @@
     <meta name="theme-color" content="#deebe4" />
     <link
       rel="preload"
-      href="assets/garden-focus.webp"
+      href="assets/garden-stage.webp"
       as="image"
       fetchpriority="high"
     />
-    <link rel="icon" href="mascot.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="story.css?v=focus-20260908" />
+    <link
+      rel="icon"
+      href="mascot.svg?v=characters-20260909"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="story.css?v=characters-20260909" />
   </head>
   <body class="bee-world">
     <a class="skip-link" href="#journey"
@@ -52,14 +56,24 @@
     </nav>
 
     <header class="story-hero">
-      <img
+      <svg
         class="garden-scene"
-        src="assets/garden-focus.webp"
+        viewBox="0 0 1536 1024"
         width="1536"
         height="1024"
-        alt=""
-        fetchpriority="high"
-      />
+        aria-hidden="true"
+        focusable="false"
+      >
+        <image href="assets/garden-stage.webp" width="1536" height="1024" />
+        <image
+          class="garden-resident"
+          href="mascot.svg?v=characters-20260909"
+          x="390"
+          y="590"
+          width="120"
+          height="140"
+        />
+      </svg>
       <div class="hero-copy">
         <h1>every15min</h1>
         <p class="hero-slogan">
