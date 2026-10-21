@@ -1,110 +1,66 @@
 const scenes = {
   zh: {
     capture: [
-      "CAPTURE CELL",
-      "一句话，让这一刻有了落脚处",
-      "没有分类表单，也不用开启计时。输入刚刚发生的事，时间戳会替你完成剩下的工作。",
-      "09:15",
+      "一句话，就是一条完整的记录",
+      "没有分类表单，也不用开始或停止计时。输入刚刚发生的事，时间戳会自动补上。",
     ],
     timeline: [
-      "DAY TIMELINE",
-      "许多个小格，慢慢拼出一天的样子",
-      "记录会沿时间线自然排列，空档也诚实保留。不是考勤，只是看见自己的节奏。",
-      "10:30",
+      "许多条小记录，拼出一天的真实形状",
+      "记录沿时间线自然排列，空档也如实保留。它不是考勤表，而是让你看见自己的节奏。",
     ],
     find: [
-      "FIND IT AGAIN",
-      "用标签，把过去的线索重新捡回来",
-      "轻点标签或输入命令，就能从完整历史中找到那段工作、那次散步或某种心情。",
-      "#find",
+      "用标签和搜索，找回任何一段过去",
+      "轻点标签或输入命令，就能从完整历史中找回那个项目、那次散步或某种心情。",
     ],
   },
   en: {
     capture: [
-      "CAPTURE CELL",
-      "One line gives this moment a place to land",
-      "No category forms and no timer to start. Type what happened; the timestamp does the rest.",
-      "09:15",
+      "One sentence is a complete entry",
+      "No category forms and no timer to start or stop. Type what just happened; the timestamp is added for you.",
     ],
     timeline: [
-      "DAY TIMELINE",
-      "Tiny cells slowly reveal the shape of a day",
-      "Entries settle into a natural timeline and gaps stay honest. It is not attendance—just rhythm.",
-      "10:30",
+      "Small entries reveal the real shape of a day",
+      "Entries settle into a timeline and gaps stay honest. It is not a timesheet, just a clear view of your rhythm.",
     ],
     find: [
-      "FIND IT AGAIN",
-      "Tags let you pick up old threads",
-      "Tap a tag or type a command to recover that project, walk or feeling from your complete history.",
-      "#find",
+      "Tags and search bring back any moment",
+      "Tap a tag or type a command to recover a project, a walk or a mood from your complete history.",
     ],
+  },
+};
+const previews = {
+  zh: {
+    capture:
+      '<p><time>09:15</time>写完登录页文案初稿 #工作</p><p class="cursor">&gt; 刚刚发生了什么？_</p>',
+    timeline:
+      '<p><time>09:15</time>写完登录页文案初稿 #工作</p><p class="gap"><time>09:30</time>—</p><p><time>09:45</time>和设计过了一遍首页 #工作</p><p><time>10:00</time>出门走了十分钟 #生活</p>',
+    find: '<p class="cursor">&gt; #工作</p><p><time>09:15</time>写完登录页文案初稿</p><p><time>09:45</time>和设计过了一遍首页</p>',
+  },
+  en: {
+    capture:
+      '<p><time>09:15</time>Drafted landing page copy #work</p><p class="cursor">&gt; What just happened? _</p>',
+    timeline:
+      '<p><time>09:15</time>Drafted landing page copy #work</p><p class="gap"><time>09:30</time>—</p><p><time>09:45</time>Homepage review with design #work</p><p><time>10:00</time>A ten-minute walk #life</p>',
+    find: '<p class="cursor">&gt; #work</p><p><time>09:15</time>Drafted landing page copy</p><p><time>09:45</time>Homepage review with design</p>',
   },
 };
 (() => {
   const tabs = [...document.querySelectorAll("[data-scene]")];
   const panel = document.getElementById("scene-panel");
-  const isBee = document.body.classList.contains("bee-world");
+  if (!tabs.length || !panel) return;
   let selected = tabs[0].dataset.scene;
-  const labels = {
-    zh: {
-      demo: "功能示意",
-      morning: "早晨的小任务",
-      done: "已记录",
-      med: "用药打卡",
-      later: "下次复诊的问题",
-      day: "今天的记录",
-      breathe: "慢慢呼吸",
-      pace: "跟着自己的节奏，慢慢来。",
-    },
-    en: {
-      demo: "Illustrative preview",
-      morning: "A small morning task",
-      done: "Recorded",
-      med: "Medication log",
-      later: "Questions for next visit",
-      day: "Today’s notes",
-      breathe: "Breathe",
-      pace: "A quiet moment, at your own pace.",
-    },
-  };
-  function preview(key, lang) {
-    const l = labels[lang];
-    if (isBee) {
-      const rows =
-        lang === "zh"
-          ? {
-              capture:
-                '<p><time>09:15</time> 给窗边的植物浇水 #生活</p><p class="cursor">&gt; 刚刚发生了什么？ _</p>',
-              timeline:
-                "<p><time>09:15</time> 窗边的第一杯咖啡</p><p><time>10:30</time> 写完了一个小功能 #工作</p><p><time>12:00</time> 出门走走 #生活</p>",
-              find: '<p class="cursor">&gt; #生活</p><p><time>09:15</time> 给窗边的植物浇水</p><p><time>12:00</time> 出门走走</p>',
-            }
-          : {
-              capture:
-                '<p><time>09:15</time> Watered the plants #life</p><p class="cursor">&gt; What just happened? _</p>',
-              timeline:
-                "<p><time>09:15</time> Coffee by the window</p><p><time>10:30</time> A tiny feature done #work</p><p><time>12:00</time> A walk outside #life</p>",
-              find: '<p class="cursor">&gt; #life</p><p><time>09:15</time> Watered the plants</p><p><time>12:00</time> A walk outside</p>',
-            };
-      return `<div class="log-window"><div class="window-top"><i></i><i></i><i></i><span>every15min</span></div><div class="log-lines">${rows[key]}</div></div><small class="preview-caption">${l.demo}</small>`;
-    }
-    const views = {
-      morning: `<strong>${l.morning}</strong><div class="care-row"><span class="care-check">✓</span><div>${l.med}<small>${l.done}</small></div></div>`,
-      day: `<strong>${l.day}</strong><div class="care-row"><span class="care-check">＋</span>${l.later}</div>`,
-      night: `<div class="breathe-circle">${l.breathe}</div><p>${l.pace}</p>`,
-    };
-    return `<div class="care-note">${views[key]}</div><small class="preview-caption">${l.demo}</small>`;
-  }
   function show(key) {
     const lang = document.documentElement.dataset.active === "en" ? "en" : "zh";
     if (!scenes[lang][key]) return;
     selected = key;
-    const data = scenes[lang][key];
+    const [title, text] = scenes[lang][key];
+    const caption = lang === "zh" ? "界面示意" : "Illustrative preview";
     document.getElementById("sceneKicker").textContent =
       `${tabs.findIndex((tab) => tab.dataset.scene === key) + 1} / ${tabs.length}`;
-    document.getElementById("sceneTitle").textContent = data[1];
-    document.getElementById("sceneText").textContent = data[2];
-    document.getElementById("sceneVisual").innerHTML = preview(key, lang);
+    document.getElementById("sceneTitle").textContent = title;
+    document.getElementById("sceneText").textContent = text;
+    document.getElementById("sceneVisual").innerHTML =
+      `<div class="log-window"><div class="window-top"><i></i><i></i><i></i><span>every15min</span></div><div class="log-lines">${previews[lang][key]}</div></div><small class="preview-caption">${caption}</small>`;
     tabs.forEach((tab) => {
       const active = tab.dataset.scene === key;
       tab.classList.toggle("active", active);
@@ -131,17 +87,6 @@ const scenes = {
       show(tabs[next].dataset.scene);
     });
   });
-  document.querySelectorAll("[data-scroll]").forEach((button) =>
-    button.addEventListener("click", () => {
-      document
-        .querySelector(button.dataset.scroll)
-        ?.scrollIntoView({
-          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-            ? "instant"
-            : "smooth",
-        });
-    }),
-  );
   document.addEventListener("languagechange", () => show(selected));
   show(selected);
 })();

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://every15min.tokendance.life/sitemap.xml

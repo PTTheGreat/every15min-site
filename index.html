@@ -3,272 +3,486 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>every15min — TokenDance 岛的十五分钟记录工坊</title>
+    <title data-title-zh="every15min：每 15 分钟一行的时间记录 App（iPhone）" data-title-en="every15min: a 15-minute time log app for iPhone">every15min：每 15 分钟一行的时间记录 App（iPhone）</title>
     <meta
       name="description"
-      content="每十五分钟写下一行刚刚发生的事。终端风格、本地保存、无账号、无广告、无追踪。"
+      content="every15min 是一款 iPhone 时间记录 App：每 15 分钟写下一行刚刚发生的事，自动生成一天的时间线、标签与 24 小时活动图谱。数据只存在本机，无账号、无广告、无追踪，支持 AES-256 加密导出。"
     />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="author" content="TokenDance" />
     <link rel="canonical" href="https://every15min.tokendance.life/" />
-    <meta name="theme-color" content="#deebe4" />
-    <link
-      rel="preload"
-      href="assets/garden-stage.webp"
-      as="image"
-      fetchpriority="high"
-    />
-    <link
-      rel="icon"
-      href="mascot.svg?v=characters-20260909"
-      type="image/svg+xml"
-    />
-    <link rel="stylesheet" href="story.css?v=characters-20260909" />
-  </head>
-  <body class="bee-world">
-    <a class="skip-link" href="#journey"
-      ><span data-lang="zh">跳到应用介绍</span
-      ><span data-lang="en">Skip to app details</span></a
-    >
-    <nav class="island-nav" aria-label="页面导航">
-      <a class="island-home" href="https://tokendance.life/"
-        ><span>←</span><b>TokenDance</b></a
-      >
-      <div class="resident-chip">
-        <i></i><span data-lang="zh">记录工坊 · 蜜蜂</span
-        ><span data-lang="en">Log Workshop · Bee</span>
-      </div>
-      <div class="langbar">
-        <button
-          type="button"
-          data-set-lang="zh"
-          aria-label="切换为中文"
-          aria-pressed="true"
-        >
-          中</button
-        ><button
-          type="button"
-          data-set-lang="en"
-          aria-label="Switch to English"
-          aria-pressed="false"
-        >
-          EN
-        </button>
-      </div>
-    </nav>
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1513" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-itunes-app" content="app-id=6801988119" />
 
-    <header class="story-hero">
-      <svg
-        class="garden-scene"
-        viewBox="0 0 1536 1024"
-        width="1536"
-        height="1024"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <image href="assets/garden-stage.webp" width="1536" height="1024" />
-        <image
-          class="garden-resident"
-          href="mascot.svg?v=characters-20260909"
-          x="390"
-          y="590"
-          width="120"
-          height="140"
-        />
-      </svg>
-      <div class="hero-copy">
-        <h1>every15min</h1>
-        <p class="hero-slogan">
-          <span data-lang="zh">把刚刚这一刻，种进今天。</span
-          ><span data-lang="en">Plant a little moment in your day.</span>
-        </p>
-      </div>
-      <div class="welcome-dialogue">
-        <span class="speaker-name"
-          ><span data-lang="zh">蜜蜂</span><span data-lang="en">Bee</span></span
-        >
-        <div class="dialogue-copy">
-          <p data-lang="zh">
-            嗡——刚刚发生了什么？每十五分钟，留下一行。你的日子，会慢慢长出自己的样子。
-          </p>
-          <p data-lang="en">
-            Buzz—what just happened? Leave a line every fifteen minutes. Watch
-            your day grow, one little moment at a time.
-          </p>
-          <div class="hero-actions">
-            <a class="primary" href="https://apps.apple.com/app/id6801988119"
-              ><span data-lang="zh">在 App Store 下载</span
-              ><span data-lang="en">Get it on the App Store</span></a
-            ><button class="text-link" data-scroll="#journey">
-              <span data-lang="zh">逛逛记录工坊 ↓</span
-              ><span data-lang="en">Explore the workshop ↓</span>
-            </button>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="every15min" />
+    <meta property="og:url" content="https://every15min.tokendance.life/" />
+    <meta property="og:title" content="every15min：每 15 分钟一行的时间记录 App" />
+    <meta
+      property="og:description"
+      content="每 15 分钟写一行，自动拼出一天的时间线。本地保存、无账号、无广告、无追踪。"
+    />
+    <meta property="og:image" content="https://every15min.tokendance.life/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="every15min 时间记录 App 的时间线界面" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="every15min：每 15 分钟一行的时间记录 App" />
+    <meta
+      name="twitter:description"
+      content="每 15 分钟写一行，自动拼出一天的时间线。本地保存、无账号、无广告、无追踪。"
+    />
+    <meta name="twitter:image" content="https://every15min.tokendance.life/assets/og-image.png" />
+
+    <link rel="icon" href="mascot.svg?v=pro-20261021" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="stylesheet" href="story.css?v=pro-20261021" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://tokendance.life/#organization",
+            "name": "TokenDance",
+            "url": "https://tokendance.life/",
+            "email": "tonybingpoon@gmail.com"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://every15min.tokendance.life/#website",
+            "url": "https://every15min.tokendance.life/",
+            "name": "every15min",
+            "inLanguage": ["zh-Hans", "en"],
+            "publisher": { "@id": "https://tokendance.life/#organization" }
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://every15min.tokendance.life/#app",
+            "name": "every15min",
+            "alternateName": "every15min 时间记录",
+            "description": "每 15 分钟写下一行刚刚发生的事，自动生成一天的时间线、标签与 24 小时活动图谱。数据只保存在本机，无账号、无广告、无追踪。",
+            "operatingSystem": "iOS 17.0 or later",
+            "applicationCategory": "ProductivityApplication",
+            "url": "https://every15min.tokendance.life/",
+            "downloadUrl": "https://apps.apple.com/app/id6801988119",
+            "installUrl": "https://apps.apple.com/app/id6801988119",
+            "image": "https://every15min.tokendance.life/assets/og-image.png",
+            "inLanguage": ["zh-Hans", "en"],
+            "featureList": [
+              "每 15 分钟一行的快速记录",
+              "自动排列的一天时间线",
+              "标签与全文搜索",
+              "24 小时活动图谱",
+              "键盘命令控制台",
+              "为记录附加照片",
+              "JSON 导出与 AES-256 加密"
+            ],
+            "publisher": { "@id": "https://tokendance.life/#organization" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://every15min.tokendance.life/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "every15min 是什么？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "every15min 是一款 iPhone 时间记录 App。你每隔大约 15 分钟写下一行刚刚做了什么，App 会自动按时间排成一天的时间线，方便回看、搜索和复盘。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "必须严格每 15 分钟记录一次吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不必。15 分钟是一个建议节奏，App 会显示下一个时间窗和距离上一条的间隔。错过的时间段会如实留空，不会被自动补全。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "我的数据存在哪里？需要注册账号吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "所有记录、照片和设置都只保存在你的 iPhone 上。every15min 没有账号、服务器、同步服务、广告或分析工具，App 本身不发起网络请求。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "可以导出或备份数据吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "可以。你可以随时把记录导出为 JSON 文件，并可选择用口令加密（PBKDF2 + AES-GCM 256）。导入时在本机合并。删除 App 会同时删除本地数据，请保留导出文件作为备份。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "every15min 收费吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "every15min 在 App Store 一次买断，没有订阅、没有广告、没有追踪。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "支持哪些设备？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "需要 iOS 17 或更高版本的 iPhone。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main"
+      ><span data-lang="zh">跳到正文</span
+      ><span data-lang="en">Skip to content</span></a
+    >
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="every15min 首页">
+          <img src="mascot.svg?v=pro-20261021" width="28" height="28" alt="" />
+          <span>every15min</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="#how"><span data-lang="zh">工作方式</span><span data-lang="en">How it works</span></a>
+          <a href="#features"><span data-lang="zh">功能</span><span data-lang="en">Features</span></a>
+          <a href="#privacy"><span data-lang="zh">隐私</span><span data-lang="en">Privacy</span></a>
+          <a href="#faq"><span data-lang="zh">常见问题</span><span data-lang="en">FAQ</span></a>
+        </nav>
+        <div class="header-actions">
+          <div class="langbar" role="group" aria-label="Language">
+            <button type="button" data-set-lang="zh" aria-label="切换为中文" aria-pressed="true">中</button
+            ><button type="button" data-set-lang="en" aria-label="Switch to English" aria-pressed="false">EN</button>
           </div>
+          <a class="button button-small" href="https://apps.apple.com/app/id6801988119"
+            ><span data-lang="zh">下载</span><span data-lang="en">Download</span></a
+          >
         </div>
       </div>
-      <a class="scroll-cue" href="#journey" aria-label="Explore app details"
-        >⌄</a
-      >
     </header>
 
-    <main>
-      <section class="journey wrap" id="journey">
-        <div class="section-heading">
-          <p class="eyebrow" data-lang="zh">蜜蜂的采集路线</p>
-          <p class="eyebrow" data-lang="en">A moment at a time</p>
-          <h2>
-            <span data-lang="zh">捕捉、回看、发现自己的节奏</span
-            ><span data-lang="en">Capture, revisit, discover your rhythm</span>
-          </h2>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span data-lang="zh">iPhone 时间记录 App</span
+              ><span data-lang="en">Time log app for iPhone</span>
+            </p>
+            <h1>
+              <span data-lang="zh">每 15 分钟一行，<br />看清时间去了哪里。</span
+              ><span data-lang="en">One line every 15 minutes.<br />See where your time goes.</span>
+            </h1>
+            <p class="lede" data-lang="zh">
+              every15min 用最轻的方式记录一天：写下刚刚发生的事，时间戳和时间线自动完成。回看、搜索、复盘，数据始终只在你的 iPhone 上。
+            </p>
+            <p class="lede" data-lang="en">
+              every15min is the lightest way to log your day. Write what just happened; timestamps and the timeline take care of themselves. Review, search and reflect, with your data kept only on your iPhone.
+            </p>
+            <div class="cta-row">
+              <a class="button" href="https://apps.apple.com/app/id6801988119"
+                ><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.52ZM14.2 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.21Z"/></svg
+                ><span data-lang="zh">在 App Store 下载</span
+                ><span data-lang="en">Download on the App Store</span></a
+              >
+              <a class="button button-ghost" href="#how"
+                ><span data-lang="zh">了解工作方式</span
+                ><span data-lang="en">See how it works</span></a
+              >
+            </div>
+            <ul class="fact-list">
+              <li><span data-lang="zh">iOS 17 及以上</span><span data-lang="en">iOS 17 or later</span></li>
+              <li><span data-lang="zh">一次买断，无订阅</span><span data-lang="en">One-time purchase</span></li>
+              <li><span data-lang="zh">无账号 · 无追踪</span><span data-lang="en">No account · no tracking</span></li>
+            </ul>
+          </div>
+
+          <figure class="device" aria-label="every15min 界面示意">
+            <div class="device-screen">
+              <div class="screen-top">
+                <span class="screen-date"><span data-lang="zh">10 月 21 日 星期二</span><span data-lang="en">Tue, Oct 21</span></span>
+                <span class="screen-stat"><span data-lang="zh">今日 12 条</span><span data-lang="en">12 today</span></span>
+              </div>
+              <div class="sparkline" aria-hidden="true">
+                <i style="--h: 10%"></i><i style="--h: 0%"></i><i style="--h: 0%"></i><i style="--h: 0%"></i><i style="--h: 0%"></i><i style="--h: 0%"></i><i style="--h: 0%"></i><i style="--h: 30%"></i><i style="--h: 70%"></i><i style="--h: 100%"></i><i style="--h: 85%"></i><i style="--h: 60%"></i><i style="--h: 40%"></i><i style="--h: 75%"></i><i style="--h: 90%"></i><i style="--h: 65%"></i><i style="--h: 50%"></i><i style="--h: 30%"></i><i style="--h: 45%"></i><i style="--h: 55%"></i><i style="--h: 35%"></i><i style="--h: 20%"></i><i style="--h: 10%"></i><i style="--h: 0%"></i>
+              </div>
+              <ol class="log" data-lang="zh">
+                <li><time>08:45</time>窗边的第一杯咖啡</li>
+                <li><time>09:00</time>整理今天的三件事 <b>#计划</b></li>
+                <li><time>09:15</time>写完登录页文案初稿 <b>#工作</b></li>
+                <li class="gap"><time>09:30</time>—</li>
+                <li><time>09:45</time>和设计过了一遍首页 <b>#工作</b></li>
+                <li><time>10:00</time>出门走了十分钟 <b>#生活</b></li>
+              </ol>
+              <ol class="log" data-lang="en">
+                <li><time>08:45</time>Coffee by the window</li>
+                <li><time>09:00</time>Picked today’s top three <b>#plan</b></li>
+                <li><time>09:15</time>Drafted landing page copy <b>#work</b></li>
+                <li class="gap"><time>09:30</time>—</li>
+                <li><time>09:45</time>Homepage review with design <b>#work</b></li>
+                <li><time>10:00</time>A ten-minute walk <b>#life</b></li>
+              </ol>
+              <div class="prompt">
+                <span>&gt;</span>
+                <span data-lang="zh">刚刚发生了什么？</span><span data-lang="en">What just happened?</span>
+                <i class="caret" aria-hidden="true"></i>
+              </div>
+            </div>
+            <figcaption><span data-lang="zh">界面示意</span><span data-lang="en">Illustrative preview</span></figcaption>
+          </figure>
         </div>
-        <div class="trail" role="tablist" aria-label="Explore app features">
-          <button class="trail-stop active" data-scene="capture">
-            <i>+</i
-            ><b
-              ><span data-lang="zh">采一格</span
-              ><span data-lang="en">Capture</span></b
-            ><small
-              ><span data-lang="zh">写下这一刻</span
-              ><span data-lang="en">Write this moment</span></small
-            >
-          </button>
-          <button class="trail-stop" data-scene="timeline">
-            <i>⌁</i
-            ><b
-              ><span data-lang="zh">排成线</span
-              ><span data-lang="en">Timeline</span></b
-            ><small
-              ><span data-lang="zh">一天自然成形</span
-              ><span data-lang="en">See the day</span></small
-            >
-          </button>
-          <button class="trail-stop" data-scene="find">
-            <i>#</i
-            ><b
-              ><span data-lang="zh">找到它</span
-              ><span data-lang="en">Find it</span></b
-            ><small
-              ><span data-lang="zh">标签与搜索</span
-              ><span data-lang="en">Tags & search</span></small
-            >
-          </button>
-        </div>
-        <article
-          class="scene-card"
-          id="scene-panel"
-          role="tabpanel"
-          tabindex="0"
-          aria-live="polite"
-        >
-          <div class="scene-visual" id="sceneVisual"></div>
-          <div>
-            <p class="scene-kicker" id="sceneKicker">Capture a moment</p>
-            <h3 id="sceneTitle">一句话，让这一刻有了落脚处</h3>
-            <p id="sceneText">
-              没有分类表单，也不用开启计时。输入刚刚发生的事，时间戳会替你完成剩下的工作。
+      </section>
+
+      <section class="section" id="how" aria-labelledby="how-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span data-lang="zh">工作方式</span><span data-lang="en">How it works</span></p>
+            <h2 id="how-title">
+              <span data-lang="zh">记录、回看、找回，三步看清自己的节奏</span
+              ><span data-lang="en">Capture, review, retrieve: three steps to see your rhythm</span>
+            </h2>
+            <p class="section-lede" data-lang="zh">
+              这是一种被称为“间隔日志”（interstitial journaling）的方法：不追求精确计时，只在每个时间间隙留下一句话。坚持几天，一天的真实形状就会出现。
+            </p>
+            <p class="section-lede" data-lang="en">
+              It is a form of interstitial journaling: no stopwatch, just one sentence in each gap of your day. After a few days, the real shape of your time becomes visible.
             </p>
           </div>
-        </article>
-      </section>
-
-      <section class="tool-section wrap">
-        <div class="section-heading">
-          <p class="eyebrow" data-lang="zh">记录工具箱</p>
-          <p class="eyebrow" data-lang="en">Your little toolkit</p>
-          <h2>
-            <span data-lang="zh">终端的效率，岛民的轻松</span
-            ><span data-lang="en">Terminal speed, island ease</span>
-          </h2>
-        </div>
-        <div class="tool-grid">
-          <article>
-            <i>15</i>
-            <h3 data-lang="zh">节奏格</h3>
-            <h3 data-lang="en">Rhythm cells</h3>
-            <p data-lang="zh">下一个时间窗、间隔、今日数量与连续记录。</p>
-            <p data-lang="en">Next window, gap, count and streak.</p>
-          </article>
-          <article>
-            <i>#</i>
-            <h3 data-lang="zh">标签搜索</h3>
-            <h3 data-lang="en">Tags & search</h3>
-            <p data-lang="zh">从完整历史里找回某个项目或心情。</p>
-            <p data-lang="en">Recover a project or feeling from history.</p>
-          </article>
-          <article>
-            <i>▥</i>
-            <h3 data-lang="zh">一天图谱</h3>
-            <h3 data-lang="en">Day map</h3>
-            <p data-lang="zh">24 小时活动火花线，让节奏一眼可见。</p>
-            <p data-lang="en">A 24-hour sparkline makes rhythm visible.</p>
-          </article>
-          <article>
-            <i>:</i>
-            <h3 data-lang="zh">命令控制台</h3>
-            <h3 data-lang="en">Command console</h3>
-            <p data-lang="zh">搜索、主题与导出，都能从键盘快速抵达。</p>
-            <p data-lang="en">Search, themes and export from the keyboard.</p>
+          <div class="steps" role="tablist" aria-label="every15min 工作方式">
+            <button class="step active" data-scene="capture" type="button">
+              <span class="step-no">01</span>
+              <b><span data-lang="zh">记录</span><span data-lang="en">Capture</span></b>
+              <small><span data-lang="zh">一句话写下这一刻</span><span data-lang="en">One line for this moment</span></small>
+            </button>
+            <button class="step" data-scene="timeline" type="button">
+              <span class="step-no">02</span>
+              <b><span data-lang="zh">回看</span><span data-lang="en">Review</span></b>
+              <small><span data-lang="zh">时间线自动成形</span><span data-lang="en">The timeline builds itself</span></small>
+            </button>
+            <button class="step" data-scene="find" type="button">
+              <span class="step-no">03</span>
+              <b><span data-lang="zh">找回</span><span data-lang="en">Retrieve</span></b>
+              <small><span data-lang="zh">标签与全文搜索</span><span data-lang="en">Tags and full-text search</span></small>
+            </button>
+          </div>
+          <article class="scene" id="scene-panel" role="tabpanel" tabindex="0" aria-live="polite">
+            <div>
+              <p class="scene-kicker" id="sceneKicker">1 / 3</p>
+              <h3 id="sceneTitle">一句话，就是一条完整的记录</h3>
+              <p id="sceneText">
+                没有分类表单，也不用开始或停止计时。输入刚刚发生的事，时间戳会自动补上。
+              </p>
+            </div>
+            <div class="scene-visual" id="sceneVisual"></div>
           </article>
         </div>
       </section>
 
-      <section class="privacy-story wrap">
-        <div>
-          <p class="eyebrow">Just for you</p>
-          <h2>
-            <span data-lang="zh">你的生活，不是我们的数据</span
-            ><span data-lang="en">Your life is not our data</span>
-          </h2>
-          <p data-lang="zh">
-            没有账号、服务器、广告或分析工具。文字和照片保存在你的设备上，随时可以导出，还可选择
-            AES-256 加密。
-          </p>
-          <p data-lang="en">
-            No accounts, servers, ads or analytics. Text and photos stay on your
-            device; export anytime, with optional AES-256 encryption.
-          </p>
-          <a href="privacy.html"
-            ><span data-lang="zh">阅读完整隐私政策 →</span
-            ><span data-lang="en">Read the privacy policy →</span></a
+      <section class="section section-alt" id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span data-lang="zh">功能</span><span data-lang="en">Features</span></p>
+            <h2 id="features-title">
+              <span data-lang="zh">为长期记录而设计的工具</span
+              ><span data-lang="en">Built for logging that lasts</span>
+            </h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">15</span>
+              <h3><span data-lang="zh">15 分钟节奏</span><span data-lang="en">15-minute rhythm</span></h3>
+              <p data-lang="zh">显示下一个时间窗、距上一条的间隔、今日条数与连续记录天数，帮你自然养成习惯。</p>
+              <p data-lang="en">Shows the next window, the gap since your last entry, today’s count and your streak, so the habit builds naturally.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">≡</span>
+              <h3><span data-lang="zh">一天时间线</span><span data-lang="en">Daily timeline</span></h3>
+              <p data-lang="zh">记录按时间自动排列，空档如实保留。不是考勤表，而是一天的真实轨迹。</p>
+              <p data-lang="en">Entries fall into place by time and gaps stay honest. Not a timesheet, just an accurate trace of the day.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">#</span>
+              <h3><span data-lang="zh">标签与搜索</span><span data-lang="en">Tags and search</span></h3>
+              <p data-lang="zh">在句子里写 #标签 即可分类，再从完整历史中找回某个项目、某次散步或某种心情。</p>
+              <p data-lang="en">Type a #tag inline, then pull any project, walk or mood back out of your full history.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">▥</span>
+              <h3><span data-lang="zh">24 小时活动图谱</span><span data-lang="en">24-hour activity map</span></h3>
+              <p data-lang="zh">用火花线展示一天里每个小时的记录密度，专注与空白一眼可见。</p>
+              <p data-lang="en">A sparkline shows entry density for each hour, so focus and idle time are visible at a glance.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">:</span>
+              <h3><span data-lang="zh">命令控制台</span><span data-lang="en">Command console</span></h3>
+              <p data-lang="zh">搜索、切换主题、导出数据，都可以通过键盘命令完成，效率接近终端。</p>
+              <p data-lang="en">Search, switch themes and export from keyboard commands, with terminal-like speed.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">⇩</span>
+              <h3><span data-lang="zh">照片与加密导出</span><span data-lang="en">Photos and encrypted export</span></h3>
+              <p data-lang="zh">可为记录附加照片；随时导出 JSON，并可选 AES-256 口令加密，备份完全由你掌控。</p>
+              <p data-lang="en">Attach photos to entries. Export JSON anytime with optional AES-256 passphrase encryption; backups stay in your hands.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="usecases-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span data-lang="zh">适用场景</span><span data-lang="en">Use cases</span></p>
+            <h2 id="usecases-title">
+              <span data-lang="zh">谁在用 every15min</span
+              ><span data-lang="en">Who uses every15min</span>
+            </h2>
+          </div>
+          <div class="usecase-grid">
+            <div class="usecase">
+              <h3><span data-lang="zh">知识工作者</span><span data-lang="en">Knowledge workers</span></h3>
+              <p data-lang="zh">找出被会议和消息切碎的时间，为周报和复盘留下真实依据。</p>
+              <p data-lang="en">Find the time lost to meetings and messages, and keep a factual record for weekly reviews.</p>
+            </div>
+            <div class="usecase">
+              <h3><span data-lang="zh">自由职业者</span><span data-lang="en">Freelancers</span></h3>
+              <p data-lang="zh">用 #项目 标签追踪每个客户的投入，结账和报价时心里有数。</p>
+              <p data-lang="en">Track effort per client with #project tags, so invoices and quotes rest on real numbers.</p>
+            </div>
+            <div class="usecase">
+              <h3><span data-lang="zh">学生与备考</span><span data-lang="en">Students</span></h3>
+              <p data-lang="zh">看清一天的学习节奏，发现最专注的时段，安排更合理的计划。</p>
+              <p data-lang="en">See your study rhythm, find your most focused hours and plan around them.</p>
+            </div>
+            <div class="usecase">
+              <h3><span data-lang="zh">日记与自我观察</span><span data-lang="en">Journaling</span></h3>
+              <p data-lang="zh">比日记更轻，比计时器更自由。一行行小记录，最终连成可回看的生活档案。</p>
+              <p data-lang="en">Lighter than a diary, freer than a timer. Small lines add up to a life log you can revisit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="privacy" aria-labelledby="privacy-title">
+        <div class="wrap privacy-grid">
+          <div>
+            <p class="eyebrow"><span data-lang="zh">隐私</span><span data-lang="en">Privacy</span></p>
+            <h2 id="privacy-title">
+              <span data-lang="zh">你的生活，不是我们的数据</span
+              ><span data-lang="en">Your life is not our data</span>
+            </h2>
+            <p data-lang="zh">
+              every15min 不收集任何数据。没有账号、服务器、同步服务、广告、分析工具或第三方 SDK，App 不发起网络请求。我们看不到、也无法恢复你的任何记录。
+            </p>
+            <p data-lang="en">
+              every15min collects no data. There is no account, server, sync service, advertising, analytics or third-party SDK, and the app makes no network requests. We cannot see or recover anything you write.
+            </p>
+            <a class="text-link" href="privacy.html"
+              ><span data-lang="zh">阅读完整隐私政策 →</span
+              ><span data-lang="en">Read the full privacy policy →</span></a
+            >
+          </div>
+          <dl class="spec-list">
+            <div><dt><span data-lang="zh">数据存储</span><span data-lang="en">Storage</span></dt><dd><span data-lang="zh">仅 iPhone 本地</span><span data-lang="en">On your iPhone only</span></dd></div>
+            <div><dt><span data-lang="zh">账号</span><span data-lang="en">Account</span></dt><dd><span data-lang="zh">不需要</span><span data-lang="en">None required</span></dd></div>
+            <div><dt><span data-lang="zh">网络请求</span><span data-lang="en">Network</span></dt><dd><span data-lang="zh">无</span><span data-lang="en">None</span></dd></div>
+            <div><dt><span data-lang="zh">广告与分析</span><span data-lang="en">Ads and analytics</span></dt><dd><span data-lang="zh">无</span><span data-lang="en">None</span></dd></div>
+            <div><dt><span data-lang="zh">导出加密</span><span data-lang="en">Export encryption</span></dt><dd>PBKDF2 + AES-GCM 256</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="wrap faq-wrap">
+          <div class="section-head">
+            <p class="eyebrow"><span data-lang="zh">常见问题</span><span data-lang="en">FAQ</span></p>
+            <h2 id="faq-title">
+              <span data-lang="zh">关于 every15min</span
+              ><span data-lang="en">About every15min</span>
+            </h2>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary><span data-lang="zh">every15min 是什么？</span><span data-lang="en">What is every15min?</span></summary>
+              <p data-lang="zh">every15min 是一款 iPhone 时间记录 App。你每隔大约 15 分钟写下一行刚刚做了什么，App 会自动按时间排成一天的时间线，方便回看、搜索和复盘。</p>
+              <p data-lang="en">every15min is a time log app for iPhone. Roughly every 15 minutes you write one line about what you just did, and the app arranges it into a timeline you can review, search and reflect on.</p>
+            </details>
+            <details>
+              <summary><span data-lang="zh">必须严格每 15 分钟记录一次吗？</span><span data-lang="en">Do I have to log exactly every 15 minutes?</span></summary>
+              <p data-lang="zh">不必。15 分钟是一个建议节奏，App 会显示下一个时间窗和距离上一条的间隔。错过的时间段会如实留空，不会被自动补全。</p>
+              <p data-lang="en">No. Fifteen minutes is a suggested rhythm; the app shows the next window and the gap since your last entry. Missed periods simply stay empty and are never filled in for you.</p>
+            </details>
+            <details>
+              <summary><span data-lang="zh">我的数据存在哪里？需要注册账号吗？</span><span data-lang="en">Where is my data stored? Do I need an account?</span></summary>
+              <p data-lang="zh">所有记录、照片和设置都只保存在你的 iPhone 上。every15min 没有账号、服务器、同步服务、广告或分析工具，App 本身不发起网络请求。</p>
+              <p data-lang="en">Entries, photos and settings live only on your iPhone. There is no account, server, sync service, advertising or analytics, and the app makes no network requests.</p>
+            </details>
+            <details>
+              <summary><span data-lang="zh">可以导出或备份数据吗？</span><span data-lang="en">Can I export or back up my data?</span></summary>
+              <p data-lang="zh">可以。你可以随时把记录导出为 JSON 文件，并可选择用口令加密（PBKDF2 + AES-GCM 256）。导入时在本机合并。删除 App 会同时删除本地数据，请保留导出文件作为备份。</p>
+              <p data-lang="en">Yes. Export to JSON at any time, optionally encrypted with a passphrase (PBKDF2 + AES-GCM 256). Imports merge locally. Deleting the app deletes its data, so keep an export as your backup.</p>
+            </details>
+            <details>
+              <summary><span data-lang="zh">every15min 收费吗？</span><span data-lang="en">How much does it cost?</span></summary>
+              <p data-lang="zh">every15min 在 App Store 一次买断，没有订阅、没有广告、没有追踪。</p>
+              <p data-lang="en">every15min is a one-time purchase on the App Store. No subscription, no ads, no tracking.</p>
+            </details>
+            <details>
+              <summary><span data-lang="zh">支持哪些设备？</span><span data-lang="en">Which devices are supported?</span></summary>
+              <p data-lang="zh">需要 iOS 17 或更高版本的 iPhone。</p>
+              <p data-lang="en">An iPhone running iOS 17 or later.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-band" aria-labelledby="cta-title">
+        <div class="wrap cta-inner">
+          <div>
+            <h2 id="cta-title">
+              <span data-lang="zh">从今天的第一行开始</span
+              ><span data-lang="en">Start with today’s first line</span>
+            </h2>
+            <p data-lang="zh">一次买断，没有订阅、没有广告、没有追踪。需要 iOS 17 或更高版本。</p>
+            <p data-lang="en">One-time purchase. No subscription, ads or tracking. Requires iOS 17 or later.</p>
+          </div>
+          <a class="button" href="https://apps.apple.com/app/id6801988119"
+            ><span data-lang="zh">在 App Store 下载</span
+            ><span data-lang="en">Download on the App Store</span></a
           >
         </div>
       </section>
     </main>
-    <section class="download-band wrap">
-      <div>
-        <p class="eyebrow" data-lang="zh">现在就能装</p>
-        <p class="eyebrow" data-lang="en">Ready when you are</p>
-        <h2>
-          <span data-lang="zh">every15min 已在 App Store 上架</span
-          ><span data-lang="en">every15min is on the App Store</span>
-        </h2>
-        <p data-lang="zh">
-          一次买断，没有订阅、没有广告、没有追踪。装上就能记下今天的第一格。
-        </p>
-        <p data-lang="en">
-          A one-time purchase. No subscription, no ads, no tracking. Install it
-          and log today&rsquo;s first cell.
-        </p>
-      </div>
-      <div class="download-cta">
-        <a class="primary" href="https://apps.apple.com/app/id6801988119"
-          ><span data-lang="zh">在 App Store 下载</span
-          ><span data-lang="en">Download on the App Store</span></a
-        >
-        <small data-lang="zh">需要 iOS 17 或更高版本</small
-        ><small data-lang="en">Requires iOS 17 or later</small>
-      </div>
-    </section>
 
-    <footer class="wrap">
-      <a href="https://tokendance.life/">← TokenDance 岛</a>
-      <p>
-        © 2026 every15min ·
-        <a href="mailto:tonybingpoon@gmail.com"
-          ><span data-lang="zh">联系园长</span
-          ><span data-lang="en">Contact Tony</span></a
-        >
-      </p>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="mascot.svg?v=pro-20261021" width="24" height="24" alt="" />
+            <span>every15min</span>
+          </a>
+          <p><span data-lang="zh">每 15 分钟一行的时间记录 App。</span><span data-lang="en">A time log, one line every 15 minutes.</span></p>
+        </div>
+        <nav class="footer-links" aria-label="页脚导航">
+          <a href="https://apps.apple.com/app/id6801988119">App Store</a>
+          <a href="privacy.html"><span data-lang="zh">隐私政策</span><span data-lang="en">Privacy policy</span></a>
+          <a href="mailto:tonybingpoon@gmail.com"><span data-lang="zh">联系我们</span><span data-lang="en">Contact</span></a>
+          <a href="https://tokendance.life/"><span data-lang="zh">TokenDance 工具集</span><span data-lang="en">TokenDance tools</span></a>
+        </nav>
+        <p class="copyright">© 2026 every15min · TokenDance</p>
+      </div>
     </footer>
-    <script src="language.js"></script>
-    <script src="story.js"></script>
+    <script src="language.js?v=pro-20261021"></script>
+    <script src="story.js?v=pro-20261021"></script>
   </body>
 </html>
