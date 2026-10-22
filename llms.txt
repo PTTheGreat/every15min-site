@@ -1,0 +1,8 @@
+# every15min
+
+> every15min is a time log app for iPhone (iOS 17+). You write one line about what just happened roughly every 15 minutes; the app builds a daily timeline, tags, full-text search and a 24-hour activity map. It is a form of interstitial journaling. All data stays on the device: no account, no server, no ads, no analytics. One-time purchase of US$1 on the App Store, no subscription.
+
+- [English product page](https://every15min.tokendance.life/en/): features, use cases, privacy and FAQ
+- [中文产品页](https://every15min.tokendance.life/): 每 15 分钟一行的时间记录 App，功能、适用场景、隐私与常见问题
+- [Privacy policy](https://every15min.tokendance.life/privacy.html): the app collects no data
+- [App Store](https://apps.apple.com/app/id6801988119): download every15min
