@@ -5,6 +5,9 @@
     const lang = value === "en" ? "en" : "zh";
     root.dataset.active = lang;
     root.lang = lang === "zh" ? "zh-Hans" : "en";
+    const title = document.querySelector("title");
+    if (title?.dataset[`title${lang === "zh" ? "Zh" : "En"}`])
+      document.title = title.dataset[`title${lang === "zh" ? "Zh" : "En"}`];
     buttons.forEach((button) =>
       button.setAttribute(
         "aria-pressed",
